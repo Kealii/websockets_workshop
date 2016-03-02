@@ -3,6 +3,7 @@ var statusMessage = document.getElementById('status-message');
 var connectionCount = document.getElementById('connection-count');
 var buttons = document.querySelectorAll('#choices button');
 var voteCount = document.getElementById('vote-tally');
+var voteMessage = document.getElementById('vote-message');
 
 socket.on('usersConnected', function (count) {
     connectionCount.innerText = 'Connected Users: ' + count;
@@ -17,6 +18,10 @@ socket.on('voteCount', function (votes) {
                           'B: ' + votes['B'] + ' ' +
                           'C: ' + votes['C'] + ' ' +
                           'D: ' + votes['D'];
+});
+
+socket.on('voteMessage', function (vote) {
+    voteMessage.innerText = 'Thanks for voting for ' + vote;
 });
 
 for (var i = 0; i < buttons.length; i++) {
