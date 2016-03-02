@@ -2,7 +2,7 @@ var socket = io();
 var statusMessage = document.getElementById('status-message');
 var connectionCount = document.getElementById('connection-count');
 var buttons = document.querySelectorAll('#choices button');
-var voteCount = document.getElementById('vote-tally');
+var voteTally = document.getElementById('vote-tally');
 var voteMessage = document.getElementById('vote-message');
 
 socket.on('usersConnected', function (count) {
@@ -14,10 +14,10 @@ socket.on('statusMessage', function (message) {
 });
 
 socket.on('voteCount', function (votes) {
-    voteCount.innerText =  '  '  + votes['A'];
-    voteCount.innerText += '  ' + votes['B'];
-    voteCount.innerText += '  ' + votes['C'];
-    voteCount.innerText += '  ' + votes['D'];
+    voteTally.innerText =  '  '  + votes['A'];
+    voteTally.innerText += '  ' + votes['B'];
+    voteTally.innerText += '  ' + votes['C'];
+    voteTally.innerText += '  ' + votes['D'];
 });
 
 socket.on('voteMessage', function (vote) {
