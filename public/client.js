@@ -14,10 +14,10 @@ socket.on('statusMessage', function (message) {
 });
 
 socket.on('voteCount', function (votes) {
-    voteCount.innerText = 'A: ' + votes['A'] + ' ' +
-                          'B: ' + votes['B'] + ' ' +
-                          'C: ' + votes['C'] + ' ' +
-                          'D: ' + votes['D'];
+    voteCount.innerText =  '  '  + votes['A'];
+    voteCount.innerText += '  ' + votes['B'];
+    voteCount.innerText += '  ' + votes['C'];
+    voteCount.innerText += '  ' + votes['D'];
 });
 
 socket.on('voteMessage', function (vote) {
